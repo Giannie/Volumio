@@ -1,0 +1,73 @@
+begin
+ prog = irexec
+ remote = energenie
+ button = KEY_POWER2
+ config = /usr/local/bin/heyu on A1
+end
+begin
+ prog = irexec
+ remote = energenie
+ button = KEY_POWER
+ config = /usr/bin/mpc clear && /usr/bin/mpc random off && /usr/bin/mpc repeat off && /usr/bin/mpc volume 90 && /usr/local/bin/heyu off A1
+end
+begin
+ prog = irexec
+ remote = energenie
+ button = KEY_PLAY
+ config = /usr/bin/mpc play
+end
+begin
+ prog = irexec
+ remote = energenie
+ button = KEY_PAUSE
+ config = /usr/bin/mpc pause
+end
+begin
+ prog = irexec
+ remote = energenie
+ button = KEY_STOP
+ config = /usr/bin/mpc clear && /usr/bin/mpc random off && /usr/bin/mpc repeat off
+end
+begin
+ prog = irexec
+ remote = energenie
+ button = KEY_AUDIO
+ config = /usr/bin/mpc load AlarmPlaylist && /usr/bin/mpc random on && /usr/bin/mpc repeat on && /usr/bin/mpc play
+# config = /usr/bin/mpc load AlarmPlaylist
+end
+begin
+ prog = irexec
+ remote = energenie
+ button = KEY_NEXT
+ config = /usr/bin/mpc next
+end
+begin
+ prog = irexec
+ remote = energenie
+ button = KEY_PREVIOUS
+ config = /usr/bin/mpc prev
+end
+begin
+ prog = irexec
+ remote = energenie
+ button = KEY_POWER
+ config = /usr/local/bin/heyu off A1 > /var/run/lircrcoutput && /usr/bin/mpc cl$
+end
+begin
+ prog = irexec
+ remote = energenie
+ button = KEY_VOLUMEUP
+ config = /usr/bin/mpc volume +1
+end
+begin
+ prog = irexec
+ remote = energenie
+ button = KEY_VOLUMEDOWN
+ config = /usr/bin/mpc volume -1
+end
+begin
+ prog = test
+ remote = energenie
+ button = KEY_VOLUMEDOWN
+ config = test
+end
