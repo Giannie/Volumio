@@ -20,7 +20,7 @@ sudo apt-get update && sudo apt-get install lirc lirc-x
 
 [ "$( grep lirc_rpi /etc/modprobe.d/etc-modules-parameters.conf )" ] || echo options lirc_rpi gpio_in_pin=18 gpio_out_pin=17 | sudo tee -a /etc/modprobe.d/etc-modules-parameters.conf
 
-[ "$( grep energenie /etc/rc.local )" ] || sudo sed -i s/"exit 0"/"export PATH=/usr/local/bin:$PATH && python /home/volumio/energenie_listen.py &\nexit 0"/ /etc/rc.local
+[ "$( grep energenie /etc/rc.local )" ] || sudo perl -pi.orig -ne 's@exit 0(?!")@export PATH=/usr/local/bin:\$PATH \&\& python /home/volumio/energenie_listen.py \&\nexit 0@' /etc/rc.local
 
 cd /tmp
 wget http://heyu.tanj.com/download/heyu-2.10.tar.gz
