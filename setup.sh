@@ -32,3 +32,7 @@ cd $dir
 sudo cp lirc/* /etc/lirc
 
 sudo cp heyu/* /etc/heyu
+
+sudo cp playlists/* /var/lib/mpd/playlists/
+
+sudo chown mpd:audio /var/lib/mpd/playlists/*
