@@ -10,7 +10,7 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 done
 dir="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
-sudo apt-get update && sudo apt-get install lirc lirc-x
+sudo apt-get update && sudo apt-get install lirc lirc-x gcc
 
 [ "$( grep lirc /boot/config.txt )" ] || echo "dtoverlay=lirc-rpi" | sudo tee -a /boot/config.txt
 
@@ -31,9 +31,10 @@ make
 sudo make install
 
 cd $dir
-sudo cp lirc/* /etc/lirc
+sudo cp lirc/* /etc/lirc/
 
-sudo cp heyu/* /etc/heyu
+sudo mkdir /etc/heyu
+sudo cp heyu/* /etc/heyu/
 
 sudo cp playlists/* /var/lib/mpd/playlists/
 
